@@ -1,2 +1,16 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<header class="header">
+  <p>[ 京都・白味噌編 ]</p>
+  <h1>{{title}}</h1>
+</header>
+<main class="contents">
+  <ul class="ozounis">
+    {{#each data}}
+    <li class="ozouni">
+      <a href="{{this.link}}" target="_brank"><img src="{{this.image}}"></a>
+    </li>
+    {{/each}}
+  </ul>
+  <div class="navigation">
+    <p><a href="/{{next}}">次のページ</a></p>
+  </div>
+</main>
