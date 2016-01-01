@@ -7,7 +7,7 @@ var mongo = require('mongodb').MongoClient
 router.get('/', function(req, res, next) {
   mongo.connect(conf.db, function(err, db) {
     var col = db.collection('medias');
-    col.find().limit(30).toArray(function(err, resolute) {
+    col.find({tags: "白味噌"}).sort({time: -1}).limit(30).toArray(function(err, resolute) {
       db.close();
       res.render('index', {
         title: 'お雑煮ぐらむ',
@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 router.get('/:num', function(req, res, next) {
   mongo.connect(conf.db, function(err, db) {
     var col = db.collection('medias');
-    col.find().skip((req.params.num - 1)*30).limit(30).toArray(function(err, resolute) {
+    col.find({tags: "白味噌"}).sort({time: -1}).skip((req.params.num - 1)*30).limit(30).toArray(function(err, resolute) {
       db.close();
       res.render('index', {
         title: 'お雑煮ぐらむ',
