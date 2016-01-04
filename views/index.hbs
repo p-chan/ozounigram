@@ -6,7 +6,10 @@
   <ul class="ozounis">
     {{#each data}}
     <li class="ozouni">
-      <a href="{{this.link}}" target="_brank"><img src="{{this.image}}"></a>
+      <a class="ozouni-block" href="{{this.link}}" target="_brank">
+        <img class="ozouni-image" src="{{this.image}}">
+        <p class="ozouni-text">{{{this.text}}}</p>
+      </a>
     </li>
     {{/each}}
   </ul>
